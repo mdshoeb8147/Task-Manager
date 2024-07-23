@@ -5,7 +5,29 @@ import Tasks from "./pages/Tasks";
 import Users from "./pages/Users";
 import Trash from "./pages/Trash";
 import TaskDetails from "./pages/TaskDetails";
-import Toaster from "sonner";
+// import Toaster from "sonner";
+
+function Layout() {
+  const user = "";
+
+  const location = useLocation();
+  return user ? (
+    <div className="w-full h-screen flex flex-col md:flex-row">
+      <div className="w-1/5 h-screen bg-white sticky top-0 hidden md:block">
+        {/* sidebar */}
+      </div>
+      {/* mobilesidebar */}
+      <div className="flex-1 overflow-y-auto ">
+        {/* navbar */}
+        <div className="p-4 2xl:px-10 ">
+          <Outlet />
+        </div>
+      </div>
+    </div>
+  ) : (
+    <Navigate to="/log-in" state={{ from: location }} replace />
+  );
+}
 
 function App() {
   return (
@@ -25,7 +47,7 @@ function App() {
         </Route>
         <Route path="/log-in" element={<Login />} />
       </Routes>
-      <Toaster richColors />
+      {/* <Toaster richColors /> */}
     </main>
   );
 }
