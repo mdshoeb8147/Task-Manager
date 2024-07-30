@@ -55,6 +55,19 @@ const Login = () => {
                 Keep all your credential safe.
               </p>
             </div>
+            <div className="flex flex-col gap-y-5 ">
+              <Textbox
+                placeholder="email@example.com"
+                type="email"
+                name="email"
+                label="Email Address"
+                className="w-full rounded-full"
+                register={register("email", {
+                  required: "Email Address is required!",
+                })}
+                error={errors.email ? errors.email.message : ""}
+              />
+            </div>
           </form>
         </div>
       </div>
